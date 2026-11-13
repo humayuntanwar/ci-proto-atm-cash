@@ -1,0 +1,11 @@
+{
+ "method": "chronos-bolt-small",
+ "context": "14",
+ "run": 0,
+ "seconds": 0.13,
+ "peak_rss_mb": 967,
+ "threads": 8,
+ "n_atms": 111,
+ "windows": 4,
+ "horizon": 14
+}
