@@ -33,9 +33,9 @@ def one(ctx):
     m = CiProto()
     warm = 16385 if ctx > 16384 else 512
     m.forecast(y[None, -H - warm:-H], 8)
-    t = time.time()
+    t = time.perf_counter()
     p = m.forecast(y[None, -H - ctx:-H], H)
-    sec = time.time() - t
+    sec = time.perf_counter() - t
     mae = float(np.abs(p[0, 4] - y[-H:]).mean())
     print(json.dumps({"context": ctx, "status": "ok", "seconds": round(sec, 2), "peak_rss_mb": round(peak_rss_mb()),
                       "mae_24h": round(mae, 3)}))
@@ -50,7 +50,7 @@ def watch(ctx):
     import psutil
     p = subprocess.Popen([sys.executable, __file__, "--one", str(ctx)], stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE, text=True)
-    proc, t0, peak = psutil.Process(p.pid), time.time(), 0
+    proc, t0, peak = psutil.Process(p.pid), time.perf_counter(), 0
     while p.poll() is None:
         try:
             peak = max(peak, proc.memory_info().rss / 2**20)
@@ -59,7 +59,7 @@ def watch(ctx):
         if peak > RSS_CAP_MB:
             p.kill()
             return {"context": ctx, "status": f"stopped: RSS passed {RSS_CAP_MB} MB cap", "rss_at_stop_mb": round(peak)}
-        if time.time() - t0 > TIME_CAP_S:
+        if time.perf_counter() - t0 > TIME_CAP_S:
             p.kill()
             return {"context": ctx, "status": f"stopped: over {TIME_CAP_S} s"}
         time.sleep(0.1)

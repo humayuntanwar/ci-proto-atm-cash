@@ -66,6 +66,7 @@ def main():
     ap.add_argument("--group", type=int, default=1, help="ci-proto rows per call")
     ap.add_argument("--contexts", default="all", help="comma list of days or 'all'")
     ap.add_argument("--runs", type=int, default=1)
+    ap.add_argument("--first-run", type=int, default=0, help="index (and seed) of the first run")
     a = ap.parse_args()
     torch.manual_seed(0)
     np.random.seed(0)
@@ -75,7 +76,7 @@ def main():
     model = {"ci-proto": lambda: CiProto(a.group), "chronos-bolt-small": ChronosBolt}.get(a.method)
     model = model() if model else None
     for ctx in a.contexts.split(","):
-        for run in range(a.runs):
+        for run in range(a.first_run, a.first_run + a.runs):
             torch.manual_seed(run)
             preds, secs = [], 0.0
             for o in origins:

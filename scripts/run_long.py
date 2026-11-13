@@ -63,15 +63,17 @@ def main():
         for w, o in enumerate(origins):
             for i, cid in enumerate(ids):
                 hist = y[i:i + 1, o - a.context:o]
-                t = time.time()
+                t = time.perf_counter()
                 if model is None:  # seasonal naive: repeat the last day
                     p = np.full((1, 9, H), np.nan)
                     p[0, 4] = hist[0, -H:]
                 else:
                     p = model.forecast(hist, H)
-                timings.append(time.time() - t)
+                timings.append(time.perf_counter() - t)
+                print(f"{cid} run{run} w{w} {timings[-1]:.2f}s", flush=True)
                 for k in range(H):
-                    r = {"client": cid, "run": run, "window": w, "h": k + 1, "actual": y[i, o + k]}
+                    r = {"client": cid, "run": run, "window": w, "h": k + 1, "actual": y[i, o + k],
+                         "forecast_seconds": round(timings[-1], 3)}
                     r.update({c: p[0, j, k] for j, c in enumerate(QCOLS)})
                     rows.append(r)
     OUT.mkdir(parents=True, exist_ok=True)

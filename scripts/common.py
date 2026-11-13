@@ -113,6 +113,6 @@ class ChronosBolt:
 
 
 def timed(fn, *a):
-    t = time.time()
+    t = time.perf_counter()
     out = fn(*a)
-    return out, time.time() - t
+    return out, time.perf_counter() - t
