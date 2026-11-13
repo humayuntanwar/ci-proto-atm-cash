@@ -1,0 +1,11 @@
+# Install CPU torch first:
+#   pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+continuousintelligence==0.1.1
+chronos-forecasting==2.3.2
+statsforecast==2.1.1
+numpy==2.5.4
+pandas==2.3.3
+pyarrow==26.0.1
+matplotlib==3.11.2
+psutil==7.2.2
+huggingface_hub==2.4.0
