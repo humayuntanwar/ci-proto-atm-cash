@@ -1,0 +1,23 @@
+{
+ "method": "seasonal_naive",
+ "context": 512,
+ "runs": 1,
+ "clients": [
+  "MT_158",
+  "MT_163",
+  "MT_172",
+  "MT_209",
+  "MT_215",
+  "MT_247",
+  "MT_266",
+  "MT_300"
+ ],
+ "eligible_clients": 154,
+ "windows": 3,
+ "horizon": 96,
+ "seconds_per_forecast_median": 0.0,
+ "seconds_per_forecast_max": 0.0,
+ "seconds_total": 0.0,
+ "peak_rss_mb": 304,
+ "threads": 8
+}

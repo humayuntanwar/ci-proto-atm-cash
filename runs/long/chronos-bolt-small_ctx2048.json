@@ -1,0 +1,23 @@
+{
+ "method": "chronos-bolt-small",
+ "context": 2048,
+ "runs": 3,
+ "clients": [
+  "MT_158",
+  "MT_163",
+  "MT_172",
+  "MT_209",
+  "MT_215",
+  "MT_247",
+  "MT_266",
+  "MT_300"
+ ],
+ "eligible_clients": 154,
+ "windows": 3,
+ "horizon": 96,
+ "seconds_per_forecast_median": 0.109,
+ "seconds_per_forecast_max": 2.422,
+ "seconds_total": 13.2,
+ "peak_rss_mb": 722,
+ "threads": 8
+}

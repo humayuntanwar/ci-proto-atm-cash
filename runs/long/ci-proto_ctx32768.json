@@ -1,0 +1,23 @@
+{
+ "method": "ci-proto",
+ "context": 32768,
+ "runs": 1,
+ "clients": [
+  "MT_158",
+  "MT_163",
+  "MT_172",
+  "MT_209",
+  "MT_215",
+  "MT_247",
+  "MT_266",
+  "MT_300"
+ ],
+ "eligible_clients": 154,
+ "windows": 3,
+ "horizon": 96,
+ "seconds_per_forecast_median": 12.143,
+ "seconds_per_forecast_max": 968.478,
+ "seconds_total": 1315.2,
+ "peak_rss_mb": 2247,
+ "threads": 8
+}
