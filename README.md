@@ -71,8 +71,13 @@ n=111 ATMs x 4 windows. "Short" = actual > stocked; "idle" = sum of (stocked - a
 At the same shortfall rate, ci-proto leaves about a third less idle cash than "last week x buffer". Note the 90% quantile
 ran short 13% of the time, not 10%; the buffer for the baseline was chosen on the test windows, which favours the baseline.
 
-Images: `images/1_head_to_head_mase.png`, `images/2_context_length.png`, `images/3_atm_forecast.png`
-(NN5-024: the ATM with the median ci-proto MASE, last window), `images/4_cpu_cost.png`.
+![ci-proto vs baselines, 14-day MASE](images/1_head_to_head_mase.png)
+
+![Does more history help](images/2_context_length.png)
+
+![ATM NN5-024 forecast with 10-90% band (median ci-proto MASE, last window)](images/3_atm_forecast.png)
+
+![CPU cost vs context length](images/4_cpu_cost.png)
 
 ## Setup and data
 
