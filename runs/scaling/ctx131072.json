@@ -1,0 +1,6 @@
+{
+ "context": 131072,
+ "status": "stopped: RSS passed 3000 MB cap",
+ "rss_at_stop_mb": 3307,
+ "series": "weatherbench_hourly 2m_temperature T212993"
+}

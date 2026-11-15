@@ -1,0 +1,11 @@
+{
+ "method": "ci-proto",
+ "context": "all",
+ "run": 0,
+ "seconds": 201.66,
+ "peak_rss_mb": 1625,
+ "threads": 8,
+ "n_atms": 111,
+ "windows": 4,
+ "horizon": 14
+}

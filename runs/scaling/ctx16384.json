@@ -1,0 +1,8 @@
+{
+ "context": 16384,
+ "status": "ok",
+ "seconds": 5.43,
+ "peak_rss_mb": 1589,
+ "mae_24h": 1.328,
+ "series": "weatherbench_hourly 2m_temperature T212993"
+}
